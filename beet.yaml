@@ -1,8 +1,9 @@
-id: template
-name: Template
+id: itemtransporter
+name: ItemTransporter
 version: "0.0.0"
-description: template
-author: author
+description: itemtransporter
+author: airdox_
+
 
 meta:
   mc_supports: ["1.20","1.20.1"]
@@ -27,13 +28,16 @@ meta:
         prefix: "#smithed.actionbar"
 
     - id: "airdox_:itemio"
-      version_: "0.5.4"
+      version_: "0.7.0"
       versioning:
         type: "normal"
         prefix: "#itemio"
         
--pipeline:
+pipeline:
   - airdox_.test_load_generator
+
+require:
+  - bolt
 
 data_pack:
   load: [.]

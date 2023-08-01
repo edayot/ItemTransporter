@@ -1,4 +1,5 @@
 {
     "values":[
+        "itemtransporter:impl/calls/itemtransporter/on_place"
     ]
 }

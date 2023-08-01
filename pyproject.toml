@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "datapacktemplate"
+name = "itemtransporter"
 version = "0.0.0"
-description = "A datapack template"
+description = "itemtransporter"
 authors = ["edayot <pro.e.dayot@gmail.com>"]
 license = "MIT"
 readme = "README.md"
