@@ -1,9 +1,10 @@
+# @public
 
 
 def cache_face(block):
     F=["north", "east", "south", "west", "up", "down"]
     for i in range(len(F)):
-        execute if block ~ ~ ~ block[facing=F[i]] run scoreboard players set #temp itemtransporter.math i
+        execute if block ~ ~ ~ f"{block}"[facing=F[i]] run scoreboard players set #temp itemtransporter.math i
 
 
 def add_tag():
@@ -11,8 +12,13 @@ def add_tag():
     for i in range(len(F)):
         execute if score #temp itemtransporter.math matches i run tag @s add f"itemtransporter.{F[i]}"
 
+def tp_to_face():
+    F=["north", "east", "south", "west", "up", "down"]
+    facing_coords=[(180,0),(-90,0),(0,0),(90,0),(0,-90),(0,90)]
+    for i in range(len(F)):
+        execute if score #temp itemtransporter.math matches i run tp @s ~ ~ ~ f"{facing_coords[i][0]}" f"{facing_coords[i][1]}"
 
-# @public
+
 
 execute 
     if data storage smithed.custom_block:main {blockApi:{id:"itemtransporter:itemtransporter"}} 
@@ -22,6 +28,7 @@ execute
         
         execute summon item_display run function itemtransporter:impl/itemtransporter/place_entity:
             add_tag()
+            tp_to_face()
             tag @s add itemtransporter.itemtransporter
             tag @s add itemtransporter.itemtransporter.extract
 
@@ -36,7 +43,7 @@ execute
             tag @s add itemio.container
             tag @s add itemio.container.nope
             function #itemio:calls/container/destroy
-        setblock ~ ~ ~ dropper
+        data remove block ~ ~ ~ Items[0]
 
 
             

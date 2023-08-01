@@ -7,9 +7,13 @@ execute
         scoreboard players operation #my_id itemtransporter.math = @s itemtransporter.math
         execute 
             as @e[tag=itemtransporter.itemtransporter.insert] 
-            if score #my_id itemtransporter.math = @s itemtransporter.math at @s
-            summon marker run function itemtransporter:impl/itemtransporter/transfer/generate_destination:
+            if score #my_id itemtransporter.math = @s itemtransporter.math
+            at @s
+            positioned ^ ^ ^1
+            summon marker 
+            run function itemtransporter:impl/itemtransporter/transfer/generate_destination:
                 say aaa
+                
 
 
 
